@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Case Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+        <div class="navbar">
+        <img src="webtoolspacklogo.png" alt="Logo", height="150" class="logo" >
+            <h1>Case Converter</h1>
+            <nav>
+              <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">More Tools</a></li>
+              </ul>
+              <div class="hamburger" onclick="toggleMenu()">
+                ☰
+              </div>
+            </nav>
+          </div>
+  </header>
+  
+
+  <div class="container">
+    <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+
+    <div class="buttons">
+      <button onclick="convertToUpper()"><b>UPPERCASE</b></button>
+      <button onclick="convertToLower()"><b>lowercase</b></button>
+      <button onclick="convertToTitle()"><b>Title Case</b></button>
+      <button onclick="convertToSentence()"><b>Sentence case</b></button>
+      <button onclick="copyText()"><b>Copy Text</b></button>
+      <button onclick="downloadText()"><b>Download Text</b></button>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="number" id="wordCount">0</div><div class="label">Words</div></div>
+      <div class="stat"><div class="number" id="charCount">0</div><div class="label">Characters</div></div>
+      <div class="stat"><div class="number" id="sentenceCount">0</div><div class="label">Sentences</div></div>
+      <div class="stat"><div class="number" id="lineCount">0</div><div class="label">Lines</div></div>
+    </div>
+  </div>
+  <div class="blog-content">
+
+    <h1>The Complete Guide to  Our Case Converter Tool</h1>
+  
+    <p>In our digital age, the way we present content is crucial. Whether you're a writer, student, developer, or marketer, how your content looks can greatly affect its readability, professionalism, and overall engagement. One of the easiest and most effective ways to enhance your content is by using a Case Converter Tool.</p>
+  
+    <p>This guide will explain what a case converter is, how it functions, the features of our tool, and why it's essential for anyone dealing with text.</p>
+  
+    <h2>What is a Case Converter Tool?</h2>
+  
+    <p>A Case Converter Tool is an online resource that allows you to change the capitalization of your text. Simply paste your content and convert it to your desired format instantly. Our tool supports transformations such as UPPERCASE, lowercase, Title Case, Sentence case, and also lets you copy or download the result.</p>
+  
+    <p>These formatting styles make your content more organized, visually appealing, and easier to read.</p>
+  
+    <h2>Features of Our Case Converter Tool</h2>
+  
+    <h3>UPPERCASE</h3>
+    <p>Turns all characters into capital letters. <strong>Example:</strong> "hello world" becomes "HELLO WORLD". Ideal for titles, labels, or emphasis.</p>
+  
+    <h3>lowercase</h3>
+    <p>Converts all characters to lowercase. <strong>Example:</strong> "Hello World" becomes "hello world". Useful for coding or casual formatting.</p>
+  
+    <h3>Title Case</h3>
+    <p>Capitalizes the first letter of every word. <strong>Example:</strong> "hello world" becomes "Hello World". Best for blog titles or email subjects.</p>
+  
+    <h3>Sentence case</h3>
+    <p>Capitalizes only the first letter of the first sentence. <strong>Example:</strong> "hello world. welcome home." becomes "Hello world. Welcome home."</p>
+  
+    <h3>Copy Text</h3>
+    <p>Allows you to quickly copy the formatted text to your clipboard with one click.</p>
+  
+    <h3>Download Text</h3>
+    <p>You can download the converted text as a .txt file for offline use or future reference.</p>
+  
+    <h2>Why Use a Case Converter Tool?</h2>
+  
+    <p>Manually formatting text is time-consuming. Our tool helps you save time, improve readability, maintain consistency, and boost your productivity. Whether you're preparing an article, writing code, or drafting a document, a case converter ensures your formatting is polished and professional.</p>
+  
+    <h2>Who Can Benefit from This Tool?</h2>
+  
+    <p>This tool is perfect for writers, bloggers, students, developers, digital marketers, and social media managers. Anyone who deals with content regularly will find it helpful in formatting clean, structured text quickly and efficiently.</p>
+  
+    <h2>How to Use Our Case Converter</h2>
+  
+    <p>Just paste your text into the input box, choose the conversion style (like UPPERCASE or Title Case), and either copy the result or download it. It’s that easy and fast!</p>
+  
+    <h2>Best Practices</h2>
+  
+    <p>Use Title Case for article titles, Sentence case for body text, and avoid using ALL CAPS unless you're emphasizing something. Always keep your formatting consistent to improve the user experience and content flow.</p>
+  
+    <h2>Final Thoughts</h2>
+  
+    <p>Our Case Converter Tool is more than just a simple utility—it's an essential tool for content creators. With multiple formatting styles, copy and download options, and an intuitive interface, it's built to make your writing process easier and cleaner.</p>
+  
+    <p><strong>Try it now and see how a small formatting change can make a big difference!</strong></p>
+  
+  </div>
+
+  <footer>
+    &copy; 2025 Case Converter | All Rights Reserved
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
