@@ -163,7 +163,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
     box-sizing: border-box;
   }  
 
@@ -327,7 +328,7 @@ color: #ffffffd6;
       flex-direction: column;
       background-color: #2a2a3d;
       position: absolute;
-      top: 40px;
+      top: 40px;  
       right: 0;
       width: 200px;
       padding-left: 0px;
@@ -374,4 +375,14 @@ color: #ffffffd6;
       margin-bottom: 20px;
       justify-content: center;
     }   
+    .stat {
+     display: flex;
+      flex-direction: column;
+    }
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+    }
 }
