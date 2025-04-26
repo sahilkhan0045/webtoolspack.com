@@ -67,7 +67,7 @@ header h1 {
 
 .header-content h1 {
   margin-right: 260px; /* Add space between h1 and buttons */
-  margin-left: 350px;
+  margin-left: 450px;
 }
 
 .header-buttons {
@@ -122,7 +122,7 @@ header h1 {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 592px;
+      height: 592%;
     }
   
 
@@ -164,7 +164,7 @@ header h1 {
       margin: 10px 0; /* Uniform margin for all stats */
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      height: 80px; /* Uniform height for all stats */
+      height: 60px; /* Uniform height for all stats */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -238,19 +238,20 @@ header h1 {
       background-color: #2a2a3d;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      padding: 20px;
+      padding: 10px 20px;
       position: absolute;
       left: 1130px;
-      bottom: 13px; /* Position at the bottom of the screen */
-      right: 20px; /* Position at the right of the screen */
-      height: 222px; /* Matches the height of the container below the text area */
+      bottom: 12px; /* Position at the bottom of the screen */
+      right: 27px; /* Position at the right of the screen */
+      height: 200px; /* Matches the height of the container below the text area */
       width: 22%; /* Matches the width of the other stats containers */
     }
 
     .bottom-right-container .stat {
       flex: 1;
       margin:10px 0; /* Small margin between the two stats */
-    }
+      padding: 0px 0px; 
+      }
 
 
     .game-container {
@@ -321,7 +322,7 @@ header h1 {
       bottom: 13px; /* Position at the bottom of the screen */
       right: 20px; /* Position at the right of the screen */
       left: 20px;
-      height: 222px; /* Matches the height of the container */
+      height: 180px; /* Matches the height of the container */
       width: 22%; /* Matches the width of the other stats containers */
     }
 
@@ -329,13 +330,13 @@ header h1 {
       font-size: 1rem;
       color: #00a1fb; /* Golden-yellow for the title */
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
 
     .progress-bar-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0px;
     }
 
     .progress-bar {
@@ -439,8 +440,8 @@ img {
     }
 
     .logo {
-     width: 150px;
-     margin-left: 50px;
+   width: 100px;
+   margin-left: 50px;
     }
 
     @media (max-width: 768px) {
@@ -686,11 +687,11 @@ text-align: justify; /* Justify text for better readability */
     
     <div class="header-content">
       <div class="pc logo">
-      <a href="/">
+        <a href="/">
         <img src="webtoolspacklogo.png" alt="Web Tools Pack Logo"></div></a>
        <h1>Word Counter</h1>
       <div class="header-buttons">
-        <button onclick="window.location.href='home.html'">Home</button>
+        <button onclick="window.location.href='/'">Home</button>
         <button onclick="window.location.href='blogs.html'">Blogs</button>
         <button onclick="window.location.href='moretools.html'">More Tools</button>
     </div>
@@ -698,12 +699,12 @@ text-align: justify; /* Justify text for better readability */
 
       <div class="navbar">
         <div class="mobile logo">
-          <a href="webtoolspack.com"></a>
+          <a href="/"></a>
       <img src="webtoolspacklogo.png" alt="Logo", height="60"></div></a>
           <h1>Word Counter</h1>
           <nav>
             <ul class="nav-links" id="navLinks">
-              <li><a href="#">Home</a></li>
+              <li> <a href="/">Home</a></li>
               <li><a href="#">Blogs</a></li>
               <li><a href="#">More Tools</a></li>
             </ul>
@@ -783,8 +784,6 @@ text-align: justify; /* Justify text for better readability */
     <div class="insta-icon">
         <img src="Instagram logo.png" alt="Instagram logo" style="width: 30px;">
     </div>
-
-    
 </div>
 
 <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
@@ -803,7 +802,7 @@ text-align: justify; /* Justify text for better readability */
       <span class="progress-bar-label"><b>0 / 280</bb></span> 
   </div>
   <div class="insta-icon">
-      <img src="X logo.png" alt="X" style="width: 30px;">
+      <img src="X logo.png" alt="X logo" style="width: 30px;">
   </div>
 </div>
 
