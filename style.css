@@ -260,8 +260,9 @@ color: #ffffffd6;
     }
 
     .container {
-      width: 90%;
+      width: 85%;
       padding: 20px 10px;
+      margin: 10px 0px;
     }
 
     .navbar {
