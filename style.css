@@ -385,7 +385,6 @@ color: #ffffffd6;
    
     }
     .stats {
-      margin-top: -20px;
       display: grid;
    grid-template-columns: repeat(2, 1fr);
       justify-content: space-between;
