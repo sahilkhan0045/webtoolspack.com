@@ -381,7 +381,6 @@ color: #ffffffd6;
     .stat {
      display: grid;
       grid-template-columns: repeat(1, 1fr);
-      height: 55px;
    
     }
     .stats {
