@@ -1,1225 +1,1225 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Counter </title>
-  <style>
-      html, body {
-  overflow-x: hidden;
-}
-
-    /* Global Styles */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #1e1e2f; /* Dark background */
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        
-            scrollbar-width: none; /* Hides scrollbar in Firefox */
-        }
-
-        ::-webkit-scrollbar {
-            display: none; /* Hides scrollbar in Chrome, Edge, Safari */
-        }
-      
-
-
-    header {
-  display: flex;
-  justify-content: space-between; /* Space between h1 and buttons */
-  align-items: center; /* Align items vertically */
-  text-align: center;
-  margin-bottom: 10px;
-  background-color: #2a2a3d; /* Dark gray background for header */
-  padding: 0px 0px; /* Add padding for spacing */
-  width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  height: 80px;
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter </title>
+    <style>
+        html, body {
+    overflow-x: hidden;
   }
+
+      /* Global Styles */
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #1e1e2f; /* Dark background */
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+          
+              scrollbar-width: none; /* Hides scrollbar in Firefox */
+          }
+
+          ::-webkit-scrollbar {
+              display: none; /* Hides scrollbar in Chrome, Edge, Safari */
+          }
+        
+
+
+      header {
+    display: flex;
+    justify-content: space-between; /* Space between h1 and buttons */
+    align-items: center; /* Align items vertically */
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #2a2a3d; /* Dark gray background for header */
+    padding: 0px 0px; /* Add padding for spacing */
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    height: 80px;
+    }
+    
+
+
+  header h1 {
+    font-size: 40px;
+    color: #00a1fb; /* Golden-yellow for the title */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    height: 30px;
+    margin-top: 0px;
+  }
+
+  .header-content {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+
+
+  .header-content h1 {
+    margin-right: 260px; /* Add space between h1 and buttons */
+    margin-left: 450px;
+  }
+
+  .header-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-right: -150px;
+    margin-left: 0px;
+    margin-top: 0px;
+    
+  }
+
+  .header-buttons button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: #00a1fb; /* Golden-yellow */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px
+  }
+
+  .header-buttons button:hover {
+    background-color: #68c9ff; /* Lighter yellow on hover */
+  }
+
+  .header-buttons button:active {
+    background-color: #00a1fb; /* Slightly darker yellow when clicked */
+  }
+
+      .main-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        max-width: 1200px ;
+      }
+        
+
+      .container {
+        flex: 2;
+        background-color: #2a2a3d; /* Dark gray container */
+        color: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        padding: 20px;
+        margin-left: 90px;
+        margin-right: -100px;
+        margin-top: -x7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 592%;
+      }
+    
+
+      textarea {
+        width: 100%;
+        height: 320px;
+        padding: 15px;
+        font-size: 1rem;
+        border: 2px solid #444;
+        border-radius: 10px;
+        resize: none;
+        margin-bottom: 20px;
+        outline: none;
+        background-color: #1e1e2f;
+        color: #ffffff;
+        transition: border-color 0.3s;
+      }
+
+      textarea:focus {
+        border-color: #00a1fb;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        
+      }
+
+      .stat {
+        flex: 1 1 45%; /* Uniform width for all stats */
+        background-color: #2e2e40;
+        color: #ffffff;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0; /* Uniform margin for all stats */
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        height: 60px; /* Uniform height for all stats */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .stat .number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #00a1fb;
+        line-height: 1;
+      }
+
+      .stat .label {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #bbbbbb;
+        margin-top: 5px;
+      }
+
+  .keyword-density-container {
+    flex: 1;
+    background-color: #2a2a3d;
+    color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    padding-left: 20px;
+    margin-right: -80px;
+    margin-left: -150px;
+    margin-top: 0px;
+    height: 320px; /* Matches the height of the text area */
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .keyword-density-container h2 {
+    font-size: 1.5rem;
+    color: #00a1fb;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .keyword-density-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .keyword-density-container th,
+  .keyword-density-container td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+  }
+
+  .keyword-density-container th {
+    color: #00a1fb;
+    font-weight: bold;
+  }
+
+  .keyword-density-container td {
+    color: #bbbbbb;
+  }
+
+      .bottom-right-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #2a2a3d;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        position: absolute;
+        left: 1130px;
+        bottom: 12px; /* Position at the bottom of the screen */
+        right: 27px; /* Position at the right of the screen */
+        height: 200px; /* Matches the height of the container below the text area */
+        width: 22%; /* Matches the width of the other stats containers */
+      }
+
+      .bottom-right-container .stat {
+        flex: 1;
+        margin:10px 0; /* Small margin between the two stats */
+        padding: 0px 0px; 
+        }
+
+
+      .game-container {
+        flex: 1;
+        background-color: #2a2a3d;
+        color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        margin-left: 110px;
+        margin-right: -140px;
+        margin-top: 0px;
+        height: 320px; /* Matches the height of the Sentence and Paragraph stats */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .game-container h2 {
+        font-size: 1.5rem;
+        color: #00a1fb;
+        text-align: center;
+      }
+
+      .game-container p {
+        font-size: 1rem;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .game-container input {
+        width: 93%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px solid #444;
+        border-radius: 10px;
+        outline: none;
+        background-color: #1e1e2f;
+        color: #ffffff;
+        margin-top: 10px;
+      }
+
+      .game-container button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #00a1fb;
+        color: #000000;
+        cursor: pointer;
+        margin-top: 10px;
+        align-self: center;
+      }
+
+      .game-container button:hover {
+        background-color: #68c9ff;
+      }
+
+      .progress-bar-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #2a2a3d;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        position: absolute;
+        bottom: 13px; /* Position at the bottom of the screen */
+        right: 20px; /* Position at the right of the screen */
+        left: 20px;
+        height: 180px; /* Matches the height of the container */
+        width: 22%; /* Matches the width of the other stats containers */
+      }
+
+      .bottom-right-container h2 {
+        font-size: 1rem;
+        color: #00a1fb; /* Golden-yellow for the title */
+        text-align: center;
+        margin-bottom: 0px;
+      }
+
+      .progress-bar-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+      }
+
+      .progress-bar {
+        position: relative;
+        height: 15px;
+        background-color: #444; /* Dark gray background for the bar */
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
   
+      .progress-bar-fill {
+        height: 100%;
+        background-color: #00a1fb; /* Teal for the progress */
+        width: 0%;
+        transition: width 0.2s ease;
+      }
+
+      .progress-bar-label {
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7rem;
+        color: #00a1fb; /* White text */
+        
+      }
+
+      .progress-bar img {
+        position: absolute;
+        right: 5px; /* Move the logo to the right */
+        top: 50%;
+        transform: translateY(-50%);
+        height: 12px;
+        width: 12px;
+      }
+
+  .blog-section {
+    background-color: #2a2a3d; /* Dark gray background */
+    color: #bbbbbb; /* White text */
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    margin-left: 17px;
+    margin-top: 10px;
+    margin-right: 17px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    clear: both; /* Ensure it doesn't overlap with floated elements */
+  }
+
+  .blog-section h1 {
+    color: #00a1fb;
+  }
+
+  .blog-section h2 {
+    color: #00a1fb; /* Golden-yellow for headings */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: left; /* Center-align the heading */
+  }
+
+  .blog-section h3 {
+    color: #00a1fb; /* Lighter yellow for subheadings */
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+
+  .blog-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify; /* Justify text for better readability */
+  }
+
+  .blog-section ul, .blog-section ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  .blog-section li {
+    margin-bottom: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+  }
+
+      footer {
+        background-color: #2a2a3d;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .navbar {
+        display: none;
+      }
+
+      .logo {
+    width: 100px;
+    margin-left: 50px;
+      }
+
+      @media (max-width: 768px) {
 
 
-header h1 {
-  font-size: 40px;
-  color: #00a1fb; /* Golden-yellow for the title */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  height: 30px;
-  margin-top: 0px;
-}
+  .main-content {
+  display: flex;
+  flex-direction: column;
+  }
 
-.header-content {
-  margin-top: 5px;
+  .container {
+  order: 1;
+  width: 90% !important;
+  margin: 10px auto !important;
+  padding-bottom: 120px;
+  height: 60px !important;
+  } 
+
+  .bottom-right-container{
+  order: 2;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  background: none;
+  box-shadow: none;
+  position: static;
+  align-items: center;
+  margin-top: -180px;
+  margin-left: 20px;
+  padding: 0px 0px;
+  }
+
+
+  .progress-bar-container {
+  order: 3;
+  width: 90% !important;
+  position: static !important;
+  margin-top: -40px;
+  margin-bottom: 22px;
+  }
+
+  .keyword-density-container {
+  order: 4;
+  width: 90% !important;
+  margin-top: -10px !important;
+  margin-left: 0px;
+  }
+
+  .keyword-density-container h2 {
+    margin-top: -10px;
+  }
+  .game-container {
+  order: 5;
+  width: 90% !important;
+  margin: 10px auto !important;
+  }
+
+  .blog-section {
+  order: 6;
+  width: 110;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+
+  }
+
+  /* Optional: footer if it's part of main-content */
+  footer {
+  order: 7;
+  margin-bottom: 0px;
+  background: #1e1e2f;
+  }
+
+  /* Optional cleanup */
+  .header-buttons {
+  display: none;
+  }
+
+  .header-content {
+  margin-left: 0;
+  align-items: center;
+  text-align: center;
+  }
+
+  textarea {
+  height: 200px;
+  font-size: 0.9rem;
+  }
+
+  .stat .number {
+  font-size: 1.8rem;
+  }
+
+  .stat .label {
+  font-size: 0.8rem;
+  }
+
+  .stat {
+    width: 100%;
+    padding: 0px 0px;
+  }
+
+  .progress-bar-label {
+  font-size: 0.7rem;
+  }
+
+  .dropdown-menu {
+  width: 100px;
+  right: 0;
+  left: auto;
+  }
+
+  .navbar {
   display: flex;
   align-items: center;
   width: 100%;
-  position: relative;
-}
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-left: 250px;
+  padding: 0px;
+  padding-bottom: 0px;
+  white-space: nowrap;
+  }
 
-
-
-.header-content h1 {
-  margin-right: 260px; /* Add space between h1 and buttons */
-  margin-left: 450px;
-}
-
-.header-buttons {
-  display: flex;
-  gap: 10px; /* Space between buttons */
-  margin-right: -150px;
-  margin-left: 0px;
-  margin-top: 0px;
-  
-}
-
-.header-buttons button {
-  padding: 8px 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000000;
-  background-color: #00a1fb; /* Golden-yellow */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px
-}
-
-.header-buttons button:hover {
-  background-color: #68c9ff; /* Lighter yellow on hover */
-}
-
-.header-buttons button:active {
-  background-color: #00a1fb; /* Slightly darker yellow when clicked */
-}
-
-    .main-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 90%;
-      max-width: 1200px ;
-    }
-      
-
-    .container {
-      flex: 2;
-      background-color: #2a2a3d; /* Dark gray container */
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      padding: 20px;
-      margin-left: 90px;
-      margin-right: -100px;
-      margin-top: -x7px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 592%;
-    }
-  
-
-    textarea {
-      width: 100%;
-      height: 320px;
-      padding: 15px;
-      font-size: 1rem;
-      border: 2px solid #444;
-      border-radius: 10px;
-      resize: none;
-      margin-bottom: 20px;
-      outline: none;
-      background-color: #1e1e2f;
-      color: #ffffff;
-      transition: border-color 0.3s;
-    }
-
-    textarea:focus {
-      border-color: #00a1fb;
-    }
-
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: -10px;
-      margin-bottom: -10px;
-      
-    }
-
-    .stat {
-      flex: 1 1 45%; /* Uniform width for all stats */
-      background-color: #2e2e40;
-      color: #ffffff;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 10px 0; /* Uniform margin for all stats */
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      height: 60px; /* Uniform height for all stats */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .stat .number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #00a1fb;
-      line-height: 1;
-    }
-
-    .stat .label {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #bbbbbb;
-      margin-top: 5px;
-    }
-
-.keyword-density-container {
-  flex: 1;
-  background-color: #2a2a3d;
-  color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  padding-left: 20px;
-  margin-right: -80px;
-  margin-left: -150px;
-  margin-top: 0px;
-  height: 320px; /* Matches the height of the text area */
-  display: flex;
-  flex-direction: column;
-}
-
-
-.keyword-density-container h2 {
-  font-size: 1.5rem;
-  color: #00a1fb;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.keyword-density-container table {
+  .navbar h1 {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
+  margin: 0px;
+  margin-left: 50px;
+  margin-top: 15px;
+  margin-right: 0px;
+  font-size: 1.5rem;
+  }
 
-.keyword-density-container th,
-.keyword-density-container td {
-  padding: 5px;
-  text-align: center;
-  border-bottom: 1px solid #444;
-}
-
-.keyword-density-container th {
-  color: #00a1fb;
+  .nav-links li a {
+  display: block;
+  text-align:justify;
+  width: 100%;
+  color: #1e1e2f;
+  background-color: #00a1fb;
+  text-decoration: none;
   font-weight: bold;
-}
+  padding: 5px 0px;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 10px 0px;
+  }
 
-.keyword-density-container td {
-  color: #bbbbbb;
-}
+  .nav-links li a:hover {
+  width: 100%;
+  background-color: #68c9ff;
+  transform: translateY(-2px);
+  margin: 0px;
+  }
 
-    .bottom-right-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: #2a2a3d;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      position: absolute;
-      left: 1130px;
-      bottom: 12px; /* Position at the bottom of the screen */
-      right: 27px; /* Position at the right of the screen */
-      height: 200px; /* Matches the height of the container below the text area */
-      width: 22%; /* Matches the width of the other stats containers */
-    }
+  .hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #00a1fb;
+  cursor: pointer;
+  display: block;
+  margin-top: 8px;
+  margin-right: 10px;
+  margin-left: 70px;
+  padding: 0px;
 
-    .bottom-right-container .stat {
-      flex: 1;
-      margin:10px 0; /* Small margin between the two stats */
-      padding: 0px 0px; 
-      }
+  }
 
+  /* Responsive styles */
 
-    .game-container {
-      flex: 1;
-      background-color: #2a2a3d;
-      color: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      margin-left: 110px;
-      margin-right: -140px;
-      margin-top: 0px;
-      height: 320px; /* Matches the height of the Sentence and Paragraph stats */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+  .nav-links {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  background-color: #2a2a3d;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 200px;
+  padding-left: 0px;
+  border-radius: 0px;
+  }
 
-    .game-container h2 {
-      font-size: 1.5rem;
-      color: #00a1fb;
-      text-align: center;
-    }
+  .nav-links.active {
+  width: 100%;
+  display: block;
+  }
 
-    .game-container p {
-      font-size: 1rem;
-      color: #ffffff;
-      text-align: center;
-    }
+  .logo {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding-right: 0px;
+  margin-top: 0px;
+  margin-left: -270px;
+  margin-right: -20px;
+  } 
+  .buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  padding-left: 0px;
 
-    .game-container input {
-      width: 93%;
-      padding: 10px;
-      font-size: 1rem;
-      border: 2px solid #444;
-      border-radius: 10px;
-      outline: none;
-      background-color: #1e1e2f;
-      color: #ffffff;
-      margin-top: 10px;
-    }
+  }
+  header {
+  background: #1e1e2f; /* Dark gray background for header */
+  margin-top: -20px;
+  }
 
-    .game-container button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      background-color: #00a1fb;
-      color: #000000;
-      cursor: pointer;
-      margin-top: 10px;
-      align-self: center;
-    }
-
-    .game-container button:hover {
-      background-color: #68c9ff;
-    }
-
-    .progress-bar-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: #2a2a3d;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      position: absolute;
-      bottom: 13px; /* Position at the bottom of the screen */
-      right: 20px; /* Position at the right of the screen */
-      left: 20px;
-      height: 180px; /* Matches the height of the container */
-      width: 22%; /* Matches the width of the other stats containers */
-    }
-
-    .bottom-right-container h2 {
-      font-size: 1rem;
-      color: #00a1fb; /* Golden-yellow for the title */
-      text-align: center;
-      margin-bottom: 0px;
-    }
-
-    .progress-bar-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0px;
-    }
-
-    .progress-bar {
-      position: relative;
-      height: 15px;
-      background-color: #444; /* Dark gray background for the bar */
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
- 
-    .progress-bar-fill {
-      height: 100%;
-      background-color: #00a1fb; /* Teal for the progress */
-      width: 0%;
-      transition: width 0.2s ease;
-    }
-
-    .progress-bar-label {
-      position: absolute;
-      top: 1px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.7rem;
-      color: #00a1fb; /* White text */
-      
-    }
-
-    .progress-bar img {
-      position: absolute;
-      right: 5px; /* Move the logo to the right */
-      top: 50%;
-      transform: translateY(-50%);
-      height: 12px;
-      width: 12px;
-    }
-
-.blog-section {
-  background-color: #2a2a3d; /* Dark gray background */
-  color: #bbbbbb; /* White text */
-  border-radius: 15px;
+  footer {
+  margin-bottom: -50px;
+  margin-top: -22px;
+  padding: 1px 0px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 2px;
-  margin-left: 17px;
-  margin-top: 10px;
-  margin-right: 17px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  clear: both; /* Ensure it doesn't overlap with floated elements */
-}
+  font-weight: normal;
+  background: #2a2a3d;
+  }
 
-.blog-section h1 {
-  color: #00a1fb;
-}
-
-.blog-section h2 {
-  color: #00a1fb; /* Golden-yellow for headings */
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  text-align: left; /* Center-align the heading */
-}
-
-.blog-section h3 {
-  color: #00a1fb; /* Lighter yellow for subheadings */
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-
-.blog-section p {
-  line-height: 1.6;
-  margin-bottom: 15px;
-  text-align: justify; /* Justify text for better readability */
-}
-
-.blog-section ul, .blog-section ol {
-  margin-left: 20px;
-  margin-bottom: 15px;
-}
-
-.blog-section li {
+  .blog-section p {
+  color: #ffffffd6;
+  font-weight: normal;
   margin-bottom: 10px;
-}
+  text-align: justify; /* Justify text for better readability */
+  }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  .header-content{
+    display: none;
+  }
+  }
 
-}
-
-    footer {
-      background-color: #2a2a3d;
-      text-align: center;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-
-    .navbar {
-      display: none;
-    }
-
-    .logo {
-   width: 100px;
-   margin-left: 50px;
-    }
-
-    @media (max-width: 768px) {
-
-
-.main-content {
-display: flex;
-flex-direction: column;
-}
-
-.container {
-order: 1;
-width: 90% !important;
-margin: 10px auto !important;
-padding-bottom: 120px;
-height: 60px !important;
-} 
-
-.bottom-right-container{
-order: 2;
-width: 90%;
-display: flex;
-flex-direction: row;
-background: none;
-box-shadow: none;
-position: static;
-align-items: center;
-margin-top: -180px;
-margin-left: 20px;
-padding: 0px 0px;
-}
-
-
-.progress-bar-container {
-order: 3;
-width: 90% !important;
-position: static !important;
-margin-top: -40px;
-margin-bottom: 22px;
-}
-
-.keyword-density-container {
-order: 4;
-width: 90% !important;
-margin-top: -10px !important;
-margin-left: 0px;
-}
-
-.keyword-density-container h2 {
-  margin-top: -10px;
-}
-.game-container {
-order: 5;
-width: 90% !important;
-margin: 10px auto !important;
-}
-
-.blog-section {
-order: 6;
-width: 110;
-margin-left: 0px;
-margin-right: 0px;
-margin-bottom: 30px;
-border-radius: 10px;
-
-}
-
-/* Optional: footer if it's part of main-content */
-footer {
-order: 7;
-margin-bottom: 0px;
-background: #1e1e2f;
-}
-
-/* Optional cleanup */
-.header-buttons {
-display: none;
-}
-
-.header-content {
-margin-left: 0;
-align-items: center;
-text-align: center;
-}
-
-textarea {
-height: 200px;
-font-size: 0.9rem;
-}
-
-.stat .number {
-font-size: 1.8rem;
-}
-
-.stat .label {
-font-size: 0.8rem;
-}
-
-.stat {
-  width: 100%;
-  padding: 0px 0px;
-}
-
-.progress-bar-label {
-font-size: 0.7rem;
-}
-
-.dropdown-menu {
-width: 100px;
-right: 0;
-left: auto;
-}
-
-.navbar {
-display: flex;
-align-items: center;
-width: 100%;
-flex-direction: row;
-align-items: flex-start;
-margin-top: 20px;
-margin-left: 250px;
-padding: 0px;
-padding-bottom: 0px;
-white-space: nowrap;
-}
-
-.navbar h1 {
-width: 100%;
-margin: 0px;
-margin-left: 50px;
-margin-top: 15px;
-margin-right: 0px;
-font-size: 1.5rem;
-}
-
-.nav-links li a {
-display: block;
-text-align:justify;
-width: 100%;
-color: #1e1e2f;
-background-color: #00a1fb;
-text-decoration: none;
-font-weight: bold;
-padding: 5px 0px;
-border-radius: 8px;
-text-align: center;
-transition: background-color 0.3s, transform 0.2s;
-margin: 10px 0px;
-}
-
-.nav-links li a:hover {
-width: 100%;
-background-color: #68c9ff;
-transform: translateY(-2px);
-margin: 0px;
-}
-
-.hamburger {
-display: none;
-font-size: 1.8rem;
-color: #00a1fb;
-cursor: pointer;
-display: block;
-margin-top: 8px;
-margin-right: 10px;
-margin-left: 70px;
-padding: 0px;
-
-}
-
-/* Responsive styles */
-
-.nav-links {
-width: 100%;
-display: none;
-flex-direction: column;
-background-color: #2a2a3d;
-position: absolute;
-top: 40px;
-right: 0;
-width: 200px;
-padding-left: 0px;
-border-radius: 0px;
-}
-
-.nav-links.active {
-width: 100%;
-display: block;
-}
-
-.logo {
-height: 60px;
-display: flex;
-justify-content: center;
-font-size: 1.5rem;
-color: #ffffff;
-padding-right: 0px;
-margin-top: 0px;
-margin-left: -270px;
-margin-right: -50px;
-} 
-.buttons {
-width: 100%;
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin-bottom: 20px;
-justify-content: center;
-padding-left: 0px;
-
-}
-header {
-background: #1e1e2f; /* Dark gray background for header */
-margin-top: -20px;
-}
-
-footer {
-margin-bottom: -50px;
-margin-top: -22px;
-padding: 1px 0px;
-padding-left: 20px;
-padding-right: 20px;
-font-weight: normal;
-background: #2a2a3d;
-}
-
-.blog-section p {
-color: #ffffffd6;
-font-weight: normal;
-margin-bottom: 10px;
-text-align: justify; /* Justify text for better readability */
-}
-
-.header-content{
-  display: none;
-}
-}
-
-  </style>
-</head>
-<body>
-  <header>
-    
-    <div class="header-content">
-      <div class="pc logo">
-        <a href="/">
-        <img src="webtoolspacklogo.png" alt="Web Tools Pack Logo"></div></a>
-       <h1>Word Counter</h1>
-      <div class="header-buttons">
-        <button onclick="window.location.href='/'">Home</button>
-        <button onclick="window.location.href='blogs.html'">Blogs</button>
-        <button onclick="window.location.href='moretools.html'">More Tools</button>
-    </div>
-    </div>
-
-      <div class="navbar">
-        <div class="mobile logo">
-          <a href="/"></a>
-      <img src="webtoolspacklogo.png" alt="Logo", height="60"></div></a>
-          <h1>Word Counter</h1>
-          <nav>
-            <ul class="nav-links" id="navLinks">
-              <li> <a href="/">Home</a></li>
-              <li><a href="#">Blogs</a></li>
-              <li><a href="#">More Tools</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-              ☰
-            </div>
-          </nav>
-        </div>
-  </header>
-  <div class="main-content">
-    
-    <div class="keyword-density-container">
-      <h2>Keyword Density Checker</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Word</th>
-            <th>Count</th>
-            <th>Percentage</th>
-          </tr>
-        </thead>
-        <tbody id="keywordDensityTable">
-          <tr>
-            <td colspan="3" style="text-align: center; color: #bbbbbb;">Type text to see keyword density</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="container">
-      <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
-      <div class="stats">
-        <div class="stat">
-          <div class="number" id="wordCount">00</div>
-          <div class="label">Words</div>
-        </div>
-        <div class="stat">
-          <div class="number" id="charCount">00</div>
-          <div class="label">Characters</div>
-        </div>
-        <div class="stat">
-          <div class="number" id="readingTime">00</div>
-          <div class="label">Reading Time</div>
-        </div>
-        <div class="stat">
-          <div class="number" id="speakingTime">00</div>
-          <div class="label">Speaking Time</div>
-        </div>
-      </div>
-    </div>
-    <div class="bottom-right-container">
-      <div class="stat">
-        <div class="number" id="sentenceCount">00</div>
-        <div class="label">Sentences</div>
-      </div>
-      <div class="stat">
-        <div class="number" id="paragraphCount">00</div>
-        <div class="label">Paragraphs</div>
-      </div>
-    </div>
-    <div class="game-container">
-      <h2>Word Memory Test</h2>
-      <p id="gameMessage">Type text in the Word Counter to start the game!</p>
-      <input type="text" id="gameInput" placeholder="Recall the words..." disabled />
-      <button id="startGame"><b>Start Game</b></button>
-    </div>
-
-    <div class="progress-bar-container">
-      <h2 style="color: #00a1fb; text-align: center; margin-top: -1px; "> Social Media Limit Checker</h2>
-
+    </style>
+  </head>
+  <body>
+    <header>
       
-     <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
-    <div class="progress-bar" data-limit="150" style="width: 300px; position: relative;">
+      <div class="header-content">
+        <div class="pc logo">
+          <a href="/">
+          <img src="webtoolspacklogo.png" alt="Web Tools Pack Logo"></div></a>
+        <h1>Word Counter</h1>
+        <div class="header-buttons">
+          <button onclick="window.location.href='/'">Home</button>
+          <button onclick="window.location.href='blogs.html'">Blogs</button>
+          <button onclick="window.location.href='moretools.html'">More Tools</button>
+      </div>
+      </div>
+
+        <div class="navbar">
+          <div class="mobile logo">
+            <a href="/"></a>
+        <img src="webtoolspacklogo.png" alt="Logo", height="60"></div></a>
+            <h1>Word Counter</h1>
+            <nav>
+              <ul class="nav-links" id="navLinks">
+                <li> <a href="/">Home</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">More Tools</a></li>
+              </ul>
+              <div class="hamburger" onclick="toggleMenu()">
+                ☰
+              </div>
+            </nav>
+          </div>
+    </header>
+    <div class="main-content">
+      
+      <div class="keyword-density-container">
+        <h2>Keyword Density Checker</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Count</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody id="keywordDensityTable">
+            <tr>
+              <td colspan="3" style="text-align: center; color: #bbbbbb;">Type text to see keyword density</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container">
+        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        <div class="stats">
+          <div class="stat">
+            <div class="number" id="wordCount">00</div>
+            <div class="label">Words</div>
+          </div>
+          <div class="stat">
+            <div class="number" id="charCount">00</div>
+            <div class="label">Characters</div>
+          </div>
+          <div class="stat">
+            <div class="number" id="readingTime">00</div>
+            <div class="label">Reading Time</div>
+          </div>
+          <div class="stat">
+            <div class="number" id="speakingTime">00</div>
+            <div class="label">Speaking Time</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-right-container">
+        <div class="stat">
+          <div class="number" id="sentenceCount">00</div>
+          <div class="label">Sentences</div>
+        </div>
+        <div class="stat">
+          <div class="number" id="paragraphCount">00</div>
+          <div class="label">Paragraphs</div>
+        </div>
+      </div>
+      <div class="game-container">
+        <h2>Word Memory Test</h2>
+        <p id="gameMessage">Type text in the Word Counter to start the game!</p>
+        <input type="text" id="gameInput" placeholder="Recall the words..." disabled />
+        <button id="startGame"><b>Start Game</b></button>
+      </div>
+
+      <div class="progress-bar-container">
+        <h2 style="color: #00a1fb; text-align: center; margin-top: -1px; "> Social Media Limit Checker</h2>
+
+        
+      <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
+      <div class="progress-bar" data-limit="150" style="width: 300px; position: relative;">
+          <div class="progress-bar-fill"></div>
+          <span class="progress-bar-label"><b>0 / 150</b></span>
+      </div>
+      <div class="insta-icon">
+          <img src="Instagram logo.png" alt="Instagram logo" style="width: 30px;">
+      </div>
+  </div>
+
+  <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
+    <div class="progress-bar" data-limit="250" style="width: 300px; position: relative;">
         <div class="progress-bar-fill"></div>
-        <span class="progress-bar-label"><b>0 / 150</b></span>
+        <span class="progress-bar-label"><b>0 / 250</b></span>
     </div>
     <div class="insta-icon">
-        <img src="Instagram logo.png" alt="Instagram logo" style="width: 30px;">
+        <img src="Facebook logo.png" alt="facebook logo" style="width: 30px;">
     </div>
-</div>
+  </div>
+        
+  <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
+    <div class="progress-bar" data-limit="280" style="width: 300px; position: relative;">
+        <div class="progress-bar-fill"></div>
+        <span class="progress-bar-label"><b>0 / 280</bb></span> 
+    </div>
+    <div class="insta-icon">
+        <img src="X logo.png" alt="X logo" style="width: 30px;">
+    </div>
+  </div>
 
-<div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
-  <div class="progress-bar" data-limit="250" style="width: 300px; position: relative;">
-      <div class="progress-bar-fill"></div>
-      <span class="progress-bar-label"><b>0 / 250</b></span>
+  <div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
+    <div class="progress-bar" data-limit="300" style="width: 300px; position: relative;">
+        <div class="progress-bar-fill"></div>
+        <span class="progress-bar-label"><b>0 / 300</b></span>
+    </div>
+    <div class="insta-icon">
+        <img src="linkedin logo.png" alt="linkedin logo" style="width: 30px;">
+    </div>
   </div>
-  <div class="insta-icon">
-      <img src="Facebook logo.png" alt="facebook logo" style="width: 30px;">
   </div>
-</div>
+
       
-<div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
-  <div class="progress-bar" data-limit="280" style="width: 300px; position: relative;">
-      <div class="progress-bar-fill"></div>
-      <span class="progress-bar-label"><b>0 / 280</bb></span> 
+    </div>
+    <div class="blog-section">
+      <div>
+    <h1>The Ultimate Guide to Word Counters: Why Every Writer Needs This Essential Tool</h1>
   </div>
-  <div class="insta-icon">
-      <img src="X logo.png" alt="X logo" style="width: 30px;">
-  </div>
-</div>
 
-<div class="insta-section" style="display: flex; align-items: center; gap: 10px;">
-  <div class="progress-bar" data-limit="300" style="width: 300px; position: relative;">
-      <div class="progress-bar-fill"></div>
-      <span class="progress-bar-label"><b>0 / 300</b></span>
+  <div>
+    <p>Ever stared at a piece of writing, wondering if it's too long or too short? You're not alone. Whether you're crafting the perfect tweet, writing a college essay, or creating content for your blog, word count matters more than you might think. That's where a word counter comes in – and trust me, it's about to become your new best friend.</p>
+    <p>Let's talk about why word counters aren't just another tool in your writing arsenal – they're the secret weapon you didn't know you needed.</p>
   </div>
-  <div class="insta-icon">
-      <img src="linkedin logo.png" alt="linkedin logo" style="width: 30px;">
-  </div>
-</div>
-</div>
 
+  <div>
+    <h2>What Is a Word Counter, Really?</h2>
+  </div>
+
+  <div>
+    <p>At its core, a word counter is exactly what it sounds like: a tool that counts words. But that's like saying a smartphone is just something you use to make calls. Today's word counters are sophisticated tools that do everything from tracking character counts to estimating reading time.</p>
+    <p>Think of it as your writing dashboard. Just like your car's dashboard tells you everything from speed to fuel level, a word counter gives you real-time insights into your writing. It's not just counting – it's analyzing, measuring, and helping you optimize your content.</p>
+  </div>
+
+  <div>
+    <h2>Why You Need a Word Counter (Even If You Think You Don't)</h2>
+  </div>
+
+  <div>
+    <p>Remember the last time you wrote something that had to fit within specific parameters? Maybe it was a college essay with a strict 2,000-word limit, or a tweet that needed to pack a punch in 280 characters. Here's why a word counter isn't just nice to have – it's essential:</p>
+  </div>
+
+  <div>
+    <h3>For the Social Media Mavens</h3>
+    <p>Social media platforms are notoriously picky about character limits. Twitter (or X, if you prefer) cuts you off at 280 characters. LinkedIn posts have their sweet spot. Instagram captions have their limits. Instead of posting and praying, a word counter helps you nail those requirements every single time.</p>
+  </div>
+
+  <div>
+    <h3>For the SEO Warriors</h3>
+    <p>If you're in the content game, you know that SEO is less of a guideline and more of a way of life. Here's something interesting: longer articles tend to perform better in search results. But there's a catch – they need to be the right kind of long. Studies show that content around 1,500 words often hits the SEO sweet spot, giving you enough room to cover your topic thoroughly without losing your readers' attention.</p>
+  </div>
+
+  <div>
+    <h3>For the Academic Athletes</h3>
+    <p>Let's be real – nothing causes more student anxiety than seeing "2,000-word minimum" on an assignment. A word counter becomes your personal progress bar, helping you track exactly how far you've come and how far you need to go. No more guessing, no more padding sentences unnecessarily.</p>
+  </div>
+
+  <div>
+    <h3>For the Professional Perfectionists</h3>
+    <p>Freelancers, editors, and content creators, this one's for you. When clients specify exact word counts, there's no room for "close enough." A word counter helps you deliver exactly what was requested, down to the last word.</p>
+  </div>
+
+  <div>
+    <h2>Features That Make Modern Word Counters Indispensable</h2>
+  </div>
+
+  <div>
+    <p>The best word counters aren't just glorified calculators. They're sophisticated writing assistants that offer:</p>
+  </div>
+
+  <div>
+    <h3>Real-Time Tracking</h3>
+    <p>Gone are the days of copying and pasting into a separate window every few minutes. Modern word counters update their counts instantly as you type, giving you immediate feedback on your progress.</p>
+  </div>
+
+  <div>
+    <h3>Word and Character Counting</h3>
+    <p>Sometimes it's not about the words – it's about the characters. Whether you're writing meta descriptions for websites or crafting the perfect SMS message, character counts matter. A good word counter tracks both with precision.</p>
+  </div>
+
+  <div>
+    <h3>Sentence and Paragraph Analysis</h3>
+    <p>Understanding how your writing breaks down helps you create better-structured content. Are your paragraphs too long? Are you varying your sentence length enough? These insights help you write more engaging content.</p>
+  </div>
+
+  <div>
+    <h3>Reading and Speaking Time Estimates</h3>
+    <p>Ever wondered how long it will take someone to read or speak your content? Modern word counters can estimate both reading and speaking time, helping you better plan presentations and content consumption.</p>
+  </div>
+
+  <div>
+    <h3>Platform Character Limits</h3>
+    <p>Social media platforms each have their own character limits. A word counter helps ensure your content fits perfectly, no matter the platform.</p>
+  </div>
+
+  <div>
+    <h2>Making the Most of Your Word Counter</h2>
+  </div>
+
+  <div>
+    <p>Here's how to turn this tool into your writing superpower:</p>
+    <p>Use it from the start. Don't wait until you're done writing to check your word count. Keep it running as you write to stay on track.</p>
+    <p>Pay attention to readability metrics. Good word counters don't just count – they help you understand how readable your content is.</p>
+    <p>Use it for planning. Knowing your target word count helps you structure your content better from the beginning.</p>
+  </div>
+
+  <div>
+    <h2>The SEO Advantage</h2>
+  </div>
+
+  <div>
+    <p>Let's dive deeper into why word count matters for SEO. It's not just about hitting a magic number – it's about giving search engines enough content to understand what you're talking about.</p>
+    <p>Longer content gives you natural opportunities to include primary and secondary keywords, related terms and phrases, comprehensive answers to user questions, and detailed examples and explanations.</p>
+    <p>But remember – quality always trumps quantity. A well-written 1,000-word article will outperform a rambling 2,500-word piece every time.</p>
+  </div>
+
+  <div>
+    <h2>Looking to the Future</h2>
+  </div>
+
+  <div>
+    <p>The world of word counters is evolving. Soon, we'll see integration with advanced grammar checking, plagiarism detection, AI-powered writing suggestions, and content optimization tools.</p>
+    <p>These additions will transform word counters from simple counting tools into comprehensive writing assistants.</p>
+  </div>
+
+  <div>
+    <h2>The Bottom Line</h2>
+  </div>
+
+  <div>
+    <p>A word counter is more than just a utility – it's a writer's companion that helps ensure your content meets its goals, whether they're academic, professional, or creative. In a world where content is king, having the right tools to create and optimize that content isn't just helpful – it's essential.</p>
+    <p>Ready to take your writing to the next level? Start using a word counter today. Your future self (and your readers) will thank you.</p>
+    <p>Remember, great writing isn't just about hitting a specific word count – it's about saying exactly what needs to be said, as clearly and effectively as possible. A word counter helps you find that sweet spot where length and quality meet, creating content that resonates with both readers and search engines.</p>
+    <p>So the next time you sit down to write, whether it's a quick social media post or a lengthy academic paper, let a word counter be your guide. It might just be the tool that takes your writing from good to great.</p>
+  </div>
+      </div>
+    <footer>
+      <p>&copy; 2025 Word Counter. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+      // Existing Word Counter logic
+      const textInput = document.getElementById('textInput');
+      const wordCount = document.getElementById('wordCount');
+      const charCount = document.getElementById('charCount');
+      const readingTime = document.getElementById('readingTime');
+      const speakingTime = document.getElementById('speakingTime');
+      const sentenceCount = document.getElementById('sentenceCount');
+      const paragraphCount = document.getElementById('paragraphCount');
     
-  </div>
-  <div class="blog-section">
-    <div>
-   <h1>The Ultimate Guide to Word Counters: Why Every Writer Needs This Essential Tool</h1>
- </div>
+    // Helper function to format time in minutes and seconds
+  function formatTimeInMinutesAndSeconds(timeInMinutes) {
+    const totalSeconds = Math.ceil(timeInMinutes * 60);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
 
- <div>
-   <p>Ever stared at a piece of writing, wondering if it's too long or too short? You're not alone. Whether you're crafting the perfect tweet, writing a college essay, or creating content for your blog, word count matters more than you might think. That's where a word counter comes in – and trust me, it's about to become your new best friend.</p>
-   <p>Let's talk about why word counters aren't just another tool in your writing arsenal – they're the secret weapon you didn't know you needed.</p>
- </div>
-
- <div>
-   <h2>What Is a Word Counter, Really?</h2>
- </div>
-
- <div>
-   <p>At its core, a word counter is exactly what it sounds like: a tool that counts words. But that's like saying a smartphone is just something you use to make calls. Today's word counters are sophisticated tools that do everything from tracking character counts to estimating reading time.</p>
-   <p>Think of it as your writing dashboard. Just like your car's dashboard tells you everything from speed to fuel level, a word counter gives you real-time insights into your writing. It's not just counting – it's analyzing, measuring, and helping you optimize your content.</p>
- </div>
-
- <div>
-   <h2>Why You Need a Word Counter (Even If You Think You Don't)</h2>
- </div>
-
- <div>
-   <p>Remember the last time you wrote something that had to fit within specific parameters? Maybe it was a college essay with a strict 2,000-word limit, or a tweet that needed to pack a punch in 280 characters. Here's why a word counter isn't just nice to have – it's essential:</p>
- </div>
-
- <div>
-   <h3>For the Social Media Mavens</h3>
-   <p>Social media platforms are notoriously picky about character limits. Twitter (or X, if you prefer) cuts you off at 280 characters. LinkedIn posts have their sweet spot. Instagram captions have their limits. Instead of posting and praying, a word counter helps you nail those requirements every single time.</p>
- </div>
-
- <div>
-   <h3>For the SEO Warriors</h3>
-   <p>If you're in the content game, you know that SEO is less of a guideline and more of a way of life. Here's something interesting: longer articles tend to perform better in search results. But there's a catch – they need to be the right kind of long. Studies show that content around 1,500 words often hits the SEO sweet spot, giving you enough room to cover your topic thoroughly without losing your readers' attention.</p>
- </div>
-
- <div>
-   <h3>For the Academic Athletes</h3>
-   <p>Let's be real – nothing causes more student anxiety than seeing "2,000-word minimum" on an assignment. A word counter becomes your personal progress bar, helping you track exactly how far you've come and how far you need to go. No more guessing, no more padding sentences unnecessarily.</p>
- </div>
-
- <div>
-   <h3>For the Professional Perfectionists</h3>
-   <p>Freelancers, editors, and content creators, this one's for you. When clients specify exact word counts, there's no room for "close enough." A word counter helps you deliver exactly what was requested, down to the last word.</p>
- </div>
-
- <div>
-   <h2>Features That Make Modern Word Counters Indispensable</h2>
- </div>
-
- <div>
-   <p>The best word counters aren't just glorified calculators. They're sophisticated writing assistants that offer:</p>
- </div>
-
- <div>
-   <h3>Real-Time Tracking</h3>
-   <p>Gone are the days of copying and pasting into a separate window every few minutes. Modern word counters update their counts instantly as you type, giving you immediate feedback on your progress.</p>
- </div>
-
- <div>
-   <h3>Word and Character Counting</h3>
-   <p>Sometimes it's not about the words – it's about the characters. Whether you're writing meta descriptions for websites or crafting the perfect SMS message, character counts matter. A good word counter tracks both with precision.</p>
- </div>
-
- <div>
-   <h3>Sentence and Paragraph Analysis</h3>
-   <p>Understanding how your writing breaks down helps you create better-structured content. Are your paragraphs too long? Are you varying your sentence length enough? These insights help you write more engaging content.</p>
- </div>
-
- <div>
-   <h3>Reading and Speaking Time Estimates</h3>
-   <p>Ever wondered how long it will take someone to read or speak your content? Modern word counters can estimate both reading and speaking time, helping you better plan presentations and content consumption.</p>
- </div>
-
- <div>
-   <h3>Platform Character Limits</h3>
-   <p>Social media platforms each have their own character limits. A word counter helps ensure your content fits perfectly, no matter the platform.</p>
- </div>
-
- <div>
-   <h2>Making the Most of Your Word Counter</h2>
- </div>
-
- <div>
-   <p>Here's how to turn this tool into your writing superpower:</p>
-   <p>Use it from the start. Don't wait until you're done writing to check your word count. Keep it running as you write to stay on track.</p>
-   <p>Pay attention to readability metrics. Good word counters don't just count – they help you understand how readable your content is.</p>
-   <p>Use it for planning. Knowing your target word count helps you structure your content better from the beginning.</p>
- </div>
-
- <div>
-   <h2>The SEO Advantage</h2>
- </div>
-
- <div>
-   <p>Let's dive deeper into why word count matters for SEO. It's not just about hitting a magic number – it's about giving search engines enough content to understand what you're talking about.</p>
-   <p>Longer content gives you natural opportunities to include primary and secondary keywords, related terms and phrases, comprehensive answers to user questions, and detailed examples and explanations.</p>
-   <p>But remember – quality always trumps quantity. A well-written 1,000-word article will outperform a rambling 2,500-word piece every time.</p>
- </div>
-
- <div>
-   <h2>Looking to the Future</h2>
- </div>
-
- <div>
-   <p>The world of word counters is evolving. Soon, we'll see integration with advanced grammar checking, plagiarism detection, AI-powered writing suggestions, and content optimization tools.</p>
-   <p>These additions will transform word counters from simple counting tools into comprehensive writing assistants.</p>
- </div>
-
- <div>
-   <h2>The Bottom Line</h2>
- </div>
-
- <div>
-   <p>A word counter is more than just a utility – it's a writer's companion that helps ensure your content meets its goals, whether they're academic, professional, or creative. In a world where content is king, having the right tools to create and optimize that content isn't just helpful – it's essential.</p>
-   <p>Ready to take your writing to the next level? Start using a word counter today. Your future self (and your readers) will thank you.</p>
-   <p>Remember, great writing isn't just about hitting a specific word count – it's about saying exactly what needs to be said, as clearly and effectively as possible. A word counter helps you find that sweet spot where length and quality meet, creating content that resonates with both readers and search engines.</p>
-   <p>So the next time you sit down to write, whether it's a quick social media post or a lengthy academic paper, let a word counter be your guide. It might just be the tool that takes your writing from good to great.</p>
- </div>
-     </div>
-  <footer>
-    <p>&copy; 2025 Word Counter. All rights reserved.</p>
-  </footer>
-
-  <script>
-
-    // Existing Word Counter logic
-    const textInput = document.getElementById('textInput');
-    const wordCount = document.getElementById('wordCount');
-    const charCount = document.getElementById('charCount');
-    const readingTime = document.getElementById('readingTime');
-    const speakingTime = document.getElementById('speakingTime');
-    const sentenceCount = document.getElementById('sentenceCount');
-    const paragraphCount = document.getElementById('paragraphCount');
-  
-   // Helper function to format time in minutes and seconds
-function formatTimeInMinutesAndSeconds(timeInMinutes) {
-  const totalSeconds = Math.ceil(timeInMinutes * 60);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-
-  if (minutes > 0) {
-    return `${minutes} m ${seconds} s`;
-  } else {
-    return `${seconds} s`;
-  }
-}
-
-// Updated event listener for text input
-textInput.addEventListener('input', () => {
-  const text = textInput.value.trim();
-
-  // Calculate words
-  const words = text.split(/\s+/).filter(word => word.length > 0);
-  const wordCountValue = words.length;
-
-  // Calculate characters
-  const charCountValue = text.length;
-
-  // Calculate sentences
-  const sentences = text.split(/[.!?]/).filter(sentence => sentence.trim().length > 0);
-  const sentenceCountValue = sentences.length;
-
-  // Calculate paragraphs
-  const paragraphs = text.split(/\n+/).filter(paragraph => paragraph.trim().length > 0);
-  const paragraphCountValue = paragraphs.length;
-
-  // Calculate reading time (average reading speed: 200 words per minute)
-  const readingTimeValue = wordCountValue / 200;
-
-  // Calculate speaking time (average speaking speed: 130 words per minute)
-  const speakingTimeValue = wordCountValue / 130;
-
-  // Update stats in the UI
-  wordCount.textContent = wordCountValue.toString().padStart(2, '0');
-  charCount.textContent = charCountValue.toString().padStart(2, '0');
-  sentenceCount.textContent = sentenceCountValue.toString().padStart(2, '0');
-  paragraphCount.textContent = paragraphCountValue.toString().padStart(2, '0');
-  readingTime.textContent = formatTimeInMinutesAndSeconds(readingTimeValue);
-  speakingTime.textContent = formatTimeInMinutesAndSeconds(speakingTimeValue);
-
-  // Update keyword density
-  updateKeywordDensity(text);
-});
-
-// Paste the `updateKeywordDensity` function here
-function updateKeywordDensity(text) {
-  // List of common grammatical words to exclude
-  const excludedWords = [
-    "the", "is", "am", "are", "was", "were", "be", "been", "being",
-    "a", "an", "and", "or", "but", "if", "then", "else", "in", "on",
-    "at", "of", "to", "for", "with", "without", "by", "as", "from",
-    "this", "that", "these", "those", "it", "its", "they", "their",
-    "them", "we", "our", "you", "your", "he", "his", "she", "her",
-    "i", "me", "my", "mine", "do", "does", "did", "have", "has",
-    "had", "will", "shall", "can", "could", "would", "should", "may",
-    "might", "must", "not", "no", "yes", "so", "too", "very", 
-  ];
-
-  // Normalize text: remove punctuation and split into words
-  const words = text
-    .toLowerCase()
-    .replace(/[^\w\s]/g, '') // Remove punctuation
-    .split(/\s+/)
-    .filter(word => word.length > 0 && !excludedWords.includes(word)); // Exclude grammatical words
-
-  const keywordDensityTable = document.getElementById('keywordDensityTable');
-
-  if (words.length === 0) {
-    keywordDensityTable.innerHTML = `
-      <tr>
-        <td colspan="3" style="text-align: center; color: #bbbbbb;">Type text to see keyword density</td>
-      </tr>
-    `;
-    return;
+    if (minutes > 0) {
+      return `${minutes} m ${seconds} s`;
+    } else {
+      return `${seconds} s`;
+    }
   }
 
-  // Count word frequencies
-  const wordCounts = {};
-  words.forEach(word => {
-    wordCounts[word] = (wordCounts[word] || 0) + 1;
+  // Updated event listener for text input
+  textInput.addEventListener('input', () => {
+    const text = textInput.value.trim();
+
+    // Calculate words
+    const words = text.split(/\s+/).filter(word => word.length > 0);
+    const wordCountValue = words.length;
+
+    // Calculate characters
+    const charCountValue = text.length;
+
+    // Calculate sentences
+    const sentences = text.split(/[.!?]/).filter(sentence => sentence.trim().length > 0);
+    const sentenceCountValue = sentences.length;
+
+    // Calculate paragraphs
+    const paragraphs = text.split(/\n+/).filter(paragraph => paragraph.trim().length > 0);
+    const paragraphCountValue = paragraphs.length;
+
+    // Calculate reading time (average reading speed: 200 words per minute)
+    const readingTimeValue = wordCountValue / 200;
+
+    // Calculate speaking time (average speaking speed: 130 words per minute)
+    const speakingTimeValue = wordCountValue / 130;
+
+    // Update stats in the UI
+    wordCount.textContent = wordCountValue.toString().padStart(2, '0');
+    charCount.textContent = charCountValue.toString().padStart(2, '0');
+    sentenceCount.textContent = sentenceCountValue.toString().padStart(2, '0');
+    paragraphCount.textContent = paragraphCountValue.toString().padStart(2, '0');
+    readingTime.textContent = formatTimeInMinutesAndSeconds(readingTimeValue);
+    speakingTime.textContent = formatTimeInMinutesAndSeconds(speakingTimeValue);
+
+    // Update keyword density
+    updateKeywordDensity(text);
   });
 
-  // Sort words by frequency
-  const sortedWords = Object.entries(wordCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8); // Get top 10 words
+  // Paste the `updateKeywordDensity` function here
+  function updateKeywordDensity(text) {
+    // List of common grammatical words to exclude
+    const excludedWords = [
+      "the", "is", "am", "are", "was", "were", "be", "been", "being",
+      "a", "an", "and", "or", "but", "if", "then", "else", "in", "on",
+      "at", "of", "to", "for", "with", "without", "by", "as", "from",
+      "this", "that", "these", "those", "it", "its", "they", "their",
+      "them", "we", "our", "you", "your", "he", "his", "she", "her",
+      "i", "me", "my", "mine", "do", "does", "did", "have", "has",
+      "had", "will", "shall", "can", "could", "would", "should", "may",
+      "might", "must", "not", "no", "yes", "so", "too", "very", 
+    ];
 
-  // Calculate total words
-  const totalWords = words.length;
+    // Normalize text: remove punctuation and split into words
+    const words = text
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '') // Remove punctuation
+      .split(/\s+/)
+      .filter(word => word.length > 0 && !excludedWords.includes(word)); // Exclude grammatical words
 
-  // Generate table rows
-  const rows = sortedWords
-    .map(([word, count]) => {
-      const percentage = ((count / totalWords) * 100).toFixed(2);
-      return `
+    const keywordDensityTable = document.getElementById('keywordDensityTable');
+
+    if (words.length === 0) {
+      keywordDensityTable.innerHTML = `
         <tr>
-          <td>${word}</td>
-          <td>${count}</td>
-          <td>${percentage}%</td>
+          <td colspan="3" style="text-align: center; color: #bbbbbb;">Type text to see keyword density</td>
         </tr>
       `;
-    })
-    .join('');
+      return;
+    }
 
-  // Update the table
-  keywordDensityTable.innerHTML = rows;
-}
-  
-    // Game condition code with Levels
-    const gameMessage = document.getElementById('gameMessage');
-    const gameInput = document.getElementById('gameInput');
-    const startGameButton = document.getElementById('startGame');
-  
-    let selectedWords = [];
-    let countdownTimer;
-    let level = 1; // Start at Level 1
-  
-    // List of grammatical words to exclude
-    const excludedWords = ["the", "is", "am", "and", "or", "but", "in", "on", "at", "of", "a", "an", "to"];
-  
-    startGameButton.addEventListener('click', () => {
-      const text = textInput.value.trim();
-      const words = text.split(/\s+/).filter(word => /^[a-zA-Z]+$/.test(word) && word.length >= 3 && !excludedWords.includes(word.toLowerCase())); // Only valid words
-  
-      if (words.length < 5) {
-        gameMessage.textContent = "Please type at least 5 valid words (3+ letters, no grammar words)!";
-        return;
-      }
-  
-      // Select words based on the current level
-      selectedWords = getWordsByLevel(words, level);
-  
-      if (selectedWords.length < 5) {
-        gameMessage.textContent = "Not enough unique words for this level. Type more words!";
-        return;
-      }
-  
-      // Display the words for 5 seconds
-      gameMessage.innerHTML = `Level ${level}: Memorize these words: ${selectedWords.join(", ")} <span style="color: #00a1fb;">(5s)</span>`;
-      gameInput.disabled = true;
-      gameInput.value = "";
-      startGameButton.textContent = "Submit Words";
-  
-      let countdown = 5;  
-      clearInterval(countdownTimer);
-      countdownTimer = setInterval(() => {
-        gameMessage.innerHTML = `Level ${level}: Memorize these words: ${selectedWords.join(", ")} <span style="color: #00a1fb;">(${countdown}s)</span>`;
-        countdown--;
-        if (countdown < 0) {
-          clearInterval(countdownTimer);
-          gameMessage.textContent = "Now type the words you remember!";
-          gameInput.disabled = false;
-          gameInput.focus();
-  
-          // Start 10-second timer for user input
-          let inputCountdown = 10;
-          countdownTimer = setInterval(() => {
-            gameMessage.innerHTML = `You have <span style="color: #00a1fb;">${inputCountdown}s</span> to type the words!`;
-            inputCountdown--;
-            if (inputCountdown < 0) {
-              clearInterval(countdownTimer);
-              validateGame();
-            }
-          }, 1000);
-        }
-      }, 1000);
+    // Count word frequencies
+    const wordCounts = {};
+    words.forEach(word => {
+      wordCounts[word] = (wordCounts[word] || 0) + 1;
     });
-  
-    function validateGame() {
-      const userWords = gameInput.value.trim().toLowerCase().split(/\s+/).filter(word => word.length > 0);
-      const correctWords = userWords.filter(word => selectedWords.map(w => w.toLowerCase()).includes(word));
-  
-      const successRate = (correctWords.length / 5) * 100; // Calculate percentage
-  
-      if (successRate >= 70) { // Pass if 70% correct (4/5)
-        level++; // Move to the next level
-        gameMessage.innerHTML = `🎉 Great job! You remembered ${correctWords.length}/5 words! Moving to Level ${level}...`;
+
+    // Sort words by frequency
+    const sortedWords = Object.entries(wordCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8); // Get top 10 words
+
+    // Calculate total words
+    const totalWords = words.length;
+
+    // Generate table rows
+    const rows = sortedWords
+      .map(([word, count]) => {
+        const percentage = ((count / totalWords) * 100).toFixed(2);
+        return `
+          <tr>
+            <td>${word}</td>
+            <td>${count}</td>
+            <td>${percentage}%</td>
+          </tr>
+        `;
+      })
+      .join('');
+
+    // Update the table
+    keywordDensityTable.innerHTML = rows;
+  }
+    
+      // Game condition code with Levels
+      const gameMessage = document.getElementById('gameMessage');
+      const gameInput = document.getElementById('gameInput');
+      const startGameButton = document.getElementById('startGame');
+    
+      let selectedWords = [];
+      let countdownTimer;
+      let level = 1; // Start at Level 1
+    
+      // List of grammatical words to exclude
+      const excludedWords = ["the", "is", "am", "and", "or", "but", "in", "on", "at", "of", "a", "an", "to"];
+    
+      startGameButton.addEventListener('click', () => {
+        const text = textInput.value.trim();
+        const words = text.split(/\s+/).filter(word => /^[a-zA-Z]+$/.test(word) && word.length >= 3 && !excludedWords.includes(word.toLowerCase())); // Only valid words
+    
+        if (words.length < 5) {
+          gameMessage.textContent = "Please type at least 5 valid words (3+ letters, no grammar words)!";
+          return;
+        }
+    
+        // Select words based on the current level
+        selectedWords = getWordsByLevel(words, level);
+    
+        if (selectedWords.length < 5) {
+          gameMessage.textContent = "Not enough unique words for this level. Type more words!";
+          return;
+        }
+    
+        // Display the words for 5 seconds
+        gameMessage.innerHTML = `Level ${level}: Memorize these words: ${selectedWords.join(", ")} <span style="color: #00a1fb;">(5s)</span>`;
+        gameInput.disabled = true;
+        gameInput.value = "";
+        startGameButton.textContent = "Submit Words";
+    
+        let countdown = 5;  
+        clearInterval(countdownTimer);
+        countdownTimer = setInterval(() => {
+          gameMessage.innerHTML = `Level ${level}: Memorize these words: ${selectedWords.join(", ")} <span style="color: #00a1fb;">(${countdown}s)</span>`;
+          countdown--;
+          if (countdown < 0) {
+            clearInterval(countdownTimer);
+            gameMessage.textContent = "Now type the words you remember!";
+            gameInput.disabled = false;
+            gameInput.focus();
+    
+            // Start 10-second timer for user input
+            let inputCountdown = 10;
+            countdownTimer = setInterval(() => {
+              gameMessage.innerHTML = `You have <span style="color: #00a1fb;">${inputCountdown}s</span> to type the words!`;
+              inputCountdown--;
+              if (inputCountdown < 0) {
+                clearInterval(countdownTimer);
+                validateGame();
+              }
+            }, 1000);
+          }
+        }, 1000);
+      });
+    
+      function validateGame() {
+        const userWords = gameInput.value.trim().toLowerCase().split(/\s+/).filter(word => word.length > 0);
+        const correctWords = userWords.filter(word => selectedWords.map(w => w.toLowerCase()).includes(word));
+    
+        const successRate = (correctWords.length / 5) * 100; // Calculate percentage
+    
+        if (successRate >= 70) { // Pass if 70% correct (4/5)
+          level++; // Move to the next level
+          gameMessage.innerHTML = `🎉 Great job! You remembered ${correctWords.length}/5 words! Moving to Level ${level}...`;
+        } else {
+          level = 1; // Reset to Level 1 on failure
+          gameMessage.innerHTML = `❌ You remembered ${correctWords.length}/5 words. Restarting at Level 1.`;
+        }
+    
+        gameInput.disabled = true;
+        startGameButton.textContent = "Start Game";
+      }
+    
+      // Function to get words based on level difficulty
+      function getWordsByLevel(words, level) {
+        let wordLengthRange = { min: 3, max: 4 }; // Default for Level 1
+    
+        if (level === 2) {
+          wordLengthRange = { min: 5, max: 7 };
+        } else if (level >= 3) {
+          wordLengthRange = { min: 8, max: 100 }; // Hardest words for high levels
+        }
+    
+        return words.filter(word => word.length >= wordLengthRange.min && word.length <= wordLengthRange.max)
+                    .sort(() => Math.random() - 0.5) // Shuffle words
+                    .slice(0, 5); // Pick 5 words
+      }
+
+    
+    // Removed duplicate declaration of textInput
+    const progressBars = document.querySelectorAll('.progress-bar'); // All progress bars
+
+  textInput.addEventListener('input', () => {
+    const textLength = textInput.value.length; // Get the length of the text
+
+    // Update each progress bar
+    progressBars.forEach(bar => {
+      const limit = parseInt(bar.getAttribute('data-limit'), 10); // Get the character limit
+      const fill = bar.querySelector('.progress-bar-fill'); // Progress bar fill element
+      const label = bar.querySelector('.progress-bar-label'); // Progress bar label element
+
+      const percentage = Math.min((textLength / limit) * 100, 100); // Calculate percentage (cap at 100%)
+      fill.style.width = `${percentage}%`; // Update the width of the fill
+      label.textContent = `${textLength} / ${limit}`; // Update the label text
+
+      // Change label color and font weight when the bar fills
+      if (percentage >= 50) {
+        label.style.color = '#000000'; // Black text
+        label.style.fontWeight = 'bold'; // Bold text
       } else {
-        level = 1; // Reset to Level 1 on failure
-        gameMessage.innerHTML = `❌ You remembered ${correctWords.length}/5 words. Restarting at Level 1.`;
+        label.style.color = '#ffffff'; // White text
+        label.style.fontWeight = 'normal'; // Normal text
       }
-  
-      gameInput.disabled = true;
-      startGameButton.textContent = "Start Game";
-    }
-  
-    // Function to get words based on level difficulty
-    function getWordsByLevel(words, level) {
-      let wordLengthRange = { min: 3, max: 4 }; // Default for Level 1
-  
-      if (level === 2) {
-        wordLengthRange = { min: 5, max: 7 };
-      } else if (level >= 3) {
-        wordLengthRange = { min: 8, max: 100 }; // Hardest words for high levels
+
+      // Change bar color to red if the character limit is exceeded
+      if (textLength > limit) {
+        fill.style.backgroundColor = '#ff4d4d'; // Red color for exceeded limit
+      } else {
+        fill.style.backgroundColor = '#00a1fb'; // Yellow color for within limit
       }
-  
-      return words.filter(word => word.length >= wordLengthRange.min && word.length <= wordLengthRange.max)
-                  .sort(() => Math.random() - 0.5) // Shuffle words
-                  .slice(0, 5); // Pick 5 words
-    }
-
-  
-  // Removed duplicate declaration of textInput
-  const progressBars = document.querySelectorAll('.progress-bar'); // All progress bars
-
-textInput.addEventListener('input', () => {
-  const textLength = textInput.value.length; // Get the length of the text
-
-  // Update each progress bar
-  progressBars.forEach(bar => {
-    const limit = parseInt(bar.getAttribute('data-limit'), 10); // Get the character limit
-    const fill = bar.querySelector('.progress-bar-fill'); // Progress bar fill element
-    const label = bar.querySelector('.progress-bar-label'); // Progress bar label element
-
-    const percentage = Math.min((textLength / limit) * 100, 100); // Calculate percentage (cap at 100%)
-    fill.style.width = `${percentage}%`; // Update the width of the fill
-    label.textContent = `${textLength} / ${limit}`; // Update the label text
-
-    // Change label color and font weight when the bar fills
-    if (percentage >= 50) {
-      label.style.color = '#000000'; // Black text
-      label.style.fontWeight = 'bold'; // Bold text
-    } else {
-      label.style.color = '#ffffff'; // White text
-      label.style.fontWeight = 'normal'; // Normal text
-    }
-
-    // Change bar color to red if the character limit is exceeded
-    if (textLength > limit) {
-      fill.style.backgroundColor = '#ff4d4d'; // Red color for exceeded limit
-    } else {
-      fill.style.backgroundColor = '#00a1fb'; // Yellow color for within limit
-    }
+    });
   });
-});
-function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
-    navLinks.classList.toggle("active");
-  
-    if (navLinks.classList.contains("active")) {
-      document.addEventListener("click", closeMenuOnOutsideClick);
-    } else {
-      document.removeEventListener("click", closeMenuOnOutsideClick);
+  function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    
+      if (navLinks.classList.contains("active")) {
+        document.addEventListener("click", closeMenuOnOutsideClick);
+      } else {
+        document.removeEventListener("click", closeMenuOnOutsideClick);
+      }
     }
-  }
-  
-  function closeMenuOnOutsideClick(event) {
-    const nav = document.querySelector("nav");
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.getElementById("navLinks");
-  
-    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-      navLinks.classList.remove("active");
-      document.removeEventListener("click", closeMenuOnOutsideClick);
+    
+    function closeMenuOnOutsideClick(event) {
+      const nav = document.querySelector("nav");
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.getElementById("navLinks");
+    
+      if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+        navLinks.classList.remove("active");
+        document.removeEventListener("click", closeMenuOnOutsideClick);
+      }
     }
-  }
-  const scrollBtn = document.querySelector(".floating-btn");
+    const scrollBtn = document.querySelector(".floating-btn");
 
-  </script>
+    </script>
 
-</body>
-</html>
+  </body>
+  </html>
