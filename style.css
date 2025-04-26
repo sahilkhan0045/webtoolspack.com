@@ -24,11 +24,14 @@ body {
 }
 
 header {
+  background: #2a2a3d;
+  padding: 0px 357px;;
   text-align: center;
   margin-bottom: 10px;
 }
 
 header h1 {
+  white-space: nowrap;
   font-size: 2.6rem;
 margin-top: -50px;
   color: #00a1fb;
@@ -194,6 +197,7 @@ footer {
   }
   
   .nav-links li a {
+    white-space: nowrap;
     color: #1e1e2f;
     background-color: #00a1fb;
     text-decoration: none;
@@ -218,7 +222,8 @@ footer {
     color: #ffffff;
  padding-right: 270px;
  margin-top: 0pc;
- margin-left: -250px;
+ margin-left: -190px;
+ margin-right: 10px;
   }
 
 .blog-content {
