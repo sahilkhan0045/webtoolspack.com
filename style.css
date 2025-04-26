@@ -379,13 +379,15 @@ color: #ffffffd6;
       justify-content: center;
     }   
     .stat {
-     display: flex;
-      flex-direction: column;
+     display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      height: 55px;
+   
     }
     .stats {
-      display: flex;
-      flex-direction: column;
+      margin-top: -20px;
+      display: grid;
+   grid-template-columns: repeat(2, 1fr);
       justify-content: space-between;
-      width: 100%;
     }
 }
