@@ -345,18 +345,12 @@ color: #ffffffd6;
       margin: 0px;
     }
 
-    textarea:focus {
-      width: 100%;
-      border-color: #ffffff;
-      outline: none;
-      margin: 0px;
-    }
 
     footer {
       width: 100%;
       padding-top: 10px;
       padding-bottom: 10px;
-      background:#2A2A3D;
+      background:#;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
