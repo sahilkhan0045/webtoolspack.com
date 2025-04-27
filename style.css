@@ -265,6 +265,19 @@ color: #ffffffd6;
       margin: 10px 0px;
     }
 
+    textarea {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 1rem;
+      border-radius: 10px;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      margin-bottom: 20px;
+      resize: vertical;
+      height: 250px;
+      resize: none;
+  }
+
     .navbar {
       background: #2A2A3D;
       display: flex;
@@ -379,7 +392,7 @@ color: #ffffffd6;
       margin-bottom: 20px;
       justify-content: center;
     }   
-    
+
     .stat {
       width: 100%;
       padding: 0px 0px;
