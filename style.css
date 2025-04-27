@@ -379,11 +379,12 @@ color: #ffffffd6;
       margin-bottom: 20px;
       justify-content: center;
     }   
+    
     .stat {
-     display: grid;
-      grid-template-columns: repeat(1, 1fr);
-   height: 55px;
+      width: 100%;
+      padding: 0px 0px;
     }
+
     .stats {
       display: grid;
    grid-template-columns: repeat(2, 1fr);
